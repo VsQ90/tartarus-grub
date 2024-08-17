@@ -20,19 +20,27 @@
 ## Compatibility
 This should work on any Linux distribution that uses GRUB, but I have only tested it on EndeavourOS and Kali
 
+## Differences to original
+### Added space for entries
+AllJavi's version works great but some users might need some extra space for GRUB-entries. In original version if you have multiple GRUB-entries the last ones might overlap with timer.
+This fork adds maximum amount of space for GRUB-entries so you can setup bootable snapshots and dual-/multi-boot to work just as beautifully as the original does.
+
+### Default location
+This fork gives instructions to copy theme file to default GRUB theme folder in /boot -partition.
+
 ## Install
 ```bash
-git clone https://github.com/AllJavi/tartarus-grub.git
+git clone https://github.com/VsQ90/tartarus-grub.git
 cd tartarus-grub
-sudo cp tartarus -r /usr/share/grub/themes/
-sudo vim /etc/default/grub
+sudo cp -r tartarus /boot/grub/themes/
+sudo nano /etc/default/grub
 ```
 Change `#GRUB_THEME=` to
-`GRUB_THEME="/usr/share/grub/themes/tartarus/theme.txt"`
+`GRUB_THEME="/boot/grub/themes/tartarus/theme.txt"`
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
-If all works correctly you should get this line in the out put:
+If all works correctly you should get this line in the output:
 ```bash
 Found theme: /usr/share/grub/themes/tartarus/theme.txt
 ```
