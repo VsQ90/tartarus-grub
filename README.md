@@ -23,6 +23,7 @@ This should work on any Linux distribution that uses GRUB, but I have only teste
 ## Differences to original
 ### Added space for entries
 AllJavi's version works great but some users might need some extra space for GRUB-entries. In original version if you have multiple GRUB-entries the last ones might overlap with timer.
+
 This fork adds maximum amount of space for GRUB-entries so you can setup bootable snapshots and dual-/multi-boot to work just as beautifully as the original does.
 
 ### Default location
